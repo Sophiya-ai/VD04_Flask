@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 #Создаём переменную и сохраняем в неё объект класса Flask. Переменная name — это специальная переменная
 # в Python, она содержит в себе имя текущего модуля, помогает фреймворку находить нужные ресурсы,
@@ -11,10 +11,40 @@ app = Flask(__name__)
 # Это не конкретный адрес, а дополнение к адресу.
 # Переменные мы обозначаем треугольными скобками <>. Теперь мы можем написать любое дополнение в адресную строку,
 # и это дополнение будет выводиться на сайте после “Привет”.
+# @app.route("/")
+# @app.route("/<password>/")
+# def hello(password=None):
+#     if password == '1234':
+#         return f"Доступ разрешен"
+#     else:
+#         return f"Доступ запрещен"
+#
+#
+# #если прописано более 1 адреса, т у нас множественное декорирование
+# @app.route("/new/")
+# @app.route("/newpage/")
+# @app.route("/новаястраница/")
+# def new():
+#     return "new page"
+
+
+#вариант работы с html
+# @app.route("/")
+# def hello():
+#     html="""
+#     <h1>тестовый запуск локального сервера</h1>
+#     <p>а это просто текст</p>
+#     """
+#     return html
+
+
 @app.route("/")
-@app.route("/<name>/")
-def hello(name="незнакомец"):
-    return f"Hello, {name}!"
+def net():
+    return render_template("cw_setka.html")
+
+@app.route("/card/")
+def card():
+    return render_template("card.html")
 
 
 
