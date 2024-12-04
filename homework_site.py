@@ -18,7 +18,7 @@ def blog():
     return render_template("blog.html")
 
 @app.route("/contacts/")
-def blog():
+def contacts():
     return render_template("contacts.html")
 
 
